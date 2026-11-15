@@ -1,5 +1,13 @@
 # @better-auth/cimd
 
+## 1.8.0-beta.10
+
+### Patch Changes
+
+- [#12595](https://github.com/better-auth/better-auth/pull/12595) [`75e7bcb`](https://github.com/better-auth/better-auth/commit/75e7bcb9d106ac7f8ffeb4c59a33508c34741010) Thanks [@gustavovalverde](https://github.com/gustavovalverde)! - OAuth provider extensions now require a unique `id`, and setup errors and discovery warnings name the extensions involved. For example, a duplicate grant type now fails with `OAuth Provider extensions "ext-a" and "ext-b" both register grant type "…"`. Before, the error did not say which extensions conflicted.
+
+  Add an `id` to every extension you pass to `extendOAuthProvider()` or `oauthProvider({ extensions })`, usually the id of the plugin that registers it. Without one, TypeScript reports a missing property and startup fails. Two extensions with the same `id` also fail at startup.
+
 ## 1.8.0-beta.9
 
 ## 1.8.0-beta.8
