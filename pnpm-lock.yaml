@@ -963,6 +963,9 @@ importers:
       '@better-auth-test/test-utils':
         specifier: workspace:*
         version: link:../test-utils
+      '@mockatoo/connect-better-auth':
+        specifier: ^0.3.0
+        version: 0.3.0(better-auth@packages+better-auth)
       vite:
         specifier: ^8.1.5
         version: 8.2.4(@types/node@25.9.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.51.2)(tsx@4.21.0)(yaml@2.9.1)
@@ -4273,6 +4276,11 @@ packages:
 
   '@mermaid-js/parser@1.2.0':
     resolution: {integrity: sha512-oYPyv8A4As1yH5Bx+04iQEQxXuIQDe0GKCNSRgao6z8AM9jixXIfP0vsppRLvGf+nKIOb9/LdpWA4YuJiVvESA==}
+
+  '@mockatoo/connect-better-auth@0.3.0':
+    resolution: {integrity: sha512-mQEDeGNT2BludUSgro/NyVjjAJC1tb/Bfy1G0D6salcHxiSiGN114NO9aeN6Arxm0yt7kYKaqYxAIJ2cUbBtJg==}
+    peerDependencies:
+      better-auth: ^1.7.7
 
   '@modelcontextprotocol/client@2.3.1':
     resolution: {integrity: sha512-mIGZXpHsjnZ6lD+gD/WCMpR5k8yVQQ8nNFH1N0Srf7AvnwTUMYD6pvTY8ng2+He5FfV7YMZLmrjL7cLa/cc3dQ==}
@@ -18669,6 +18677,10 @@ snapshots:
   '@mermaid-js/parser@1.2.0':
     dependencies:
       '@chevrotain/types': 11.1.2
+
+  '@mockatoo/connect-better-auth@0.3.0(better-auth@packages+better-auth)':
+    dependencies:
+      better-auth: link:packages/better-auth
 
   '@modelcontextprotocol/client@2.3.1':
     dependencies:

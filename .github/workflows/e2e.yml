@@ -117,7 +117,14 @@ jobs:
           docker compose up -d --wait --wait-timeout 60 "${compose_services[@]}"
 
       - name: Integration
-        run: pnpm e2e:integration --filter=./e2e/integration
+        env:
+          MOCKATOO_TEST_EMAIL: ${{ secrets.MOCKATOO_TEST_EMAIL }}
+          MOCKATOO_TEST_PASSWORD: ${{ secrets.MOCKATOO_TEST_PASSWORD }}
+        run: |
+          if [[ -z "$MOCKATOO_TEST_EMAIL" || -z "$MOCKATOO_TEST_PASSWORD" ]]; then
+            echo "::notice::MOCKATOO_TEST_EMAIL and MOCKATOO_TEST_PASSWORD are not set, so the full social sign-in test is skipped."
+          fi
+          pnpm e2e:integration --filter=./e2e/integration
 
       - name: Build Next.js demo
         working-directory: demo/nextjs

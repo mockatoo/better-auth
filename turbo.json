@@ -116,6 +116,7 @@
     },
     "e2e:integration": {
       "dependsOn": ["^build"],
+      "passThroughEnv": ["MOCKATOO_TEST_EMAIL", "MOCKATOO_TEST_PASSWORD"],
       "inputs": [
         "$TURBO_DEFAULT$",
         "vitest.config.*",
